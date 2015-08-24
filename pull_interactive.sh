@@ -42,7 +42,7 @@ if [ -z "${answer}" ]; then
   answer="no"
 fi
 if [[ ${answer} =~ ^\s*[yY]([eE][sS])?\s*$ ]]; then
-  command git ${@#-i}
+  command git ${@#-i} $remote $branch
   exit 0
 elif [[ ${answer} =~ ^\s*[nN][oO]?\s*$ ]]; then
   exit 1
