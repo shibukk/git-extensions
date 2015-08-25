@@ -31,12 +31,9 @@ remote=${remote:-origin}
 read -p "Please input branch (default: master) " branch
 branch=${branch:-master}
 
-# 現在のbranchを取得する
-current=$(command git rev-parse --abbrev-ref HEAD)
-
 # dry-runをする
 command git fetch $remote
-command git diff --stat-width=500 $current..$remote/$branch
+command git diff --stat-width=500 HEAD..$remote/$branch
 
 # yes/noの確認メッセージを出力する
 printf "Are you sure you want to run? (y/N) "
